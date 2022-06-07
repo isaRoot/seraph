@@ -1,0 +1,8 @@
+aiogram==3.0.0b3
+aiohttp==3.8.1
+async-timeout==4.0.2
+attrs==21.4.0
+idna==3.3
+multidict==6.0.2
+typing-extensions==4.2.0
+yarl==1.7.2

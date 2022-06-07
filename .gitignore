@@ -1,0 +1,11 @@
+/config.py
+/.idea/
+/venv/
+/seraph.db
+/seraph.db-journal
+*.pyc
+*.db
+*.log
+/logs/*.log.*
+/bot_update.sh
+/db.backup.sh
