@@ -5,6 +5,7 @@ from aiogram import Router, types, F
 from aiogram.dispatcher.filters import Command, CommandObject
 
 import file_db
+from config import bot_owner_id
 
 fileConfig('logging.ini', disable_existing_loggers=False)
 log = logging.getLogger(__name__)
@@ -26,7 +27,7 @@ async def end_start(message: types.Message):
         await message.answer(text)
 
 
-@router.message(F.chat.type == 'private', F.chat.id == 4210135, Command(commands='add_en_words'))
+@router.message(F.chat.type == 'private', F.chat.id == bot_owner_id, Command(commands='add_en_words'))
 async def cmd_add_en_words(message: types.Message, command: CommandObject):
     arg = command.args
     lines = arg.swapcase().lower().splitlines()
@@ -51,7 +52,7 @@ async def cmd_add_en_words(message: types.Message, command: CommandObject):
     await message.answer(text)
 
 
-@router.message(F.chat.type == 'private', F.chat.id == 4210135, Command(commands='add_ru_words'))
+@router.message(F.chat.type == 'private', F.chat.id == bot_owner_id, Command(commands='add_ru_words'))
 async def cmd_add_ru_words(message: types.Message, command: CommandObject):
     arg = command.args
     lines = arg.swapcase().lower().splitlines()

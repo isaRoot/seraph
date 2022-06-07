@@ -1,6 +1,7 @@
 # from aiogram import Router
 from aiogram.types import *
 
+from config import bot_owner_id
 from misc import bot
 
 import logging
@@ -17,16 +18,13 @@ async def set_commands():
         BotCommand(command="/add_ru_words", description="Добавить русские слова"),
         BotCommand(command="/add_en_words", description="Добавить английские слова"),
     ]
-    log.info(f'Установлен список команд BotCommandScopeChat(chat_id=4210135)')
-    await bot.set_my_commands(commands, BotCommandScopeChat(chat_id=4210135))
+    log.info(f'Установлен список команд BotCommandScopeChat(chat_id={bot_owner_id})')
+    await bot.set_my_commands(commands, BotCommandScopeChat(chat_id=bot_owner_id))
 
 
 async def send_msg2isaroot(msg):
-    await bot.send_message(chat_id=4210135, text=msg)
+    await bot.send_message(chat_id=bot_owner_id, text=msg)
     print()
 
 
-async def send_msg2aqueisa(msg):
-    await bot.send_message(chat_id=152842271, text=msg)
-    print()
 
